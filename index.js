@@ -10,21 +10,11 @@ const messageRouter = require("./router/Message.router");
 const userRouter = require("./router/Users.router");
 const { app, server } = require("./socket/socket");
 connectToDb();
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: 'https://6642145f046ec10398e24193--fascinating-belekoy-23f79b.netlify.app/',
+  credentials:true
+}));
 
-// CORS middleware
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://6642145f046ec10398e24193--fascinating-belekoy-23f79b.netlify.app/"
-  );
-  next();
-});
 app.use(session({ secret: "keyboard cat", cookie: { maxAge: 60000 } }));
 app.use(express.json());
 app.use(parser.urlencoded({ extended: true }));
