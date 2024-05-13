@@ -12,7 +12,7 @@ const { app, server } = require("./socket/socket");
 connectToDb();
 app.use(
   cors({
-    origin: process.env.FrontendURL,
+    origin: "https://extraordinary-bavarois-038f29.netlify.app/",
     credentials: true,
   })
 );
