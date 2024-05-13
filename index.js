@@ -12,7 +12,7 @@ const { app, server } = require("./socket/socket");
 connectToDb();
 app.use(
   cors({
-    origin: true,
+    origin: process.env.FrontendURL,
     credentials: true,
   })
 );
