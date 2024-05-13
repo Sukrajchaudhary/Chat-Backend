@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.FrontendURL,
+    origin: "https://regal-cajeta-a6d86d.netlify.app",
     credentials: true,
     methods: ["GET", "POST"],
   },
@@ -17,6 +17,7 @@ const getReceiverSocketId = (receiverId) => {
 };
 const onlineUsers = {};
 io.on("connection", async (socket) => {
+  console.log("connect user", socket.id);
   const userId = socket.handshake.query?.userId;
   onlineUsers[userId] = socket.id;
   io.emit("getOnlineUsers", Object.keys(onlineUsers));
