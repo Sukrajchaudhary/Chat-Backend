@@ -11,12 +11,12 @@ const userRouter = require("./router/Users.router");
 const { app, server } = require("./socket/socket");
 connectToDb();
 app.use(cors({
-  origin: 'https://6642145f046ec10398e24193--fascinating-belekoy-23f79b.netlify.app',
+  origin: 'https://sukrajchatapp.netlify.app',
   credentials:true,
   exposedHeaders:true,
 }));
 
-app.use(session({ secret: "keyboard cat", cookie: { maxAge: 60000 } }));
+app.use(session({ secret: "keyboard cat", cookie: { maxAge: 90000 } }));
 app.use(express.json());
 app.use(parser.urlencoded({ extended: true }));
 app.use(cookieParser());
